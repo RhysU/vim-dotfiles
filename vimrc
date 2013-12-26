@@ -45,7 +45,6 @@ else
 endif
 set autoindent
 set backspace=indent,eol,start
-set backup
 set cmdheight=2
 set copyindent
 set diffopt+=iwhite,horizontal,context:2
@@ -65,6 +64,7 @@ set linespace=0
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set matchpairs+=<:>
+set nobackup
 set noerrorbells
 set nojoinspaces
 set nowrap
