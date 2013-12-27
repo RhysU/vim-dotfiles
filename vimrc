@@ -17,12 +17,17 @@ Bundle 'corntrace/bufexplorer'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'gerw/vim-latex-suite'
 Bundle 'gmarik/vundle'
+Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'majutsushi/tagbar'
+Bundle 'Raimondi/delimitMate'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplete.vim'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/vimshell'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-abolish.git'
 Bundle 'tpope/vim-fugitive'
@@ -31,7 +36,6 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/VisIncr'
 filetype plugin indent on
 syntax on
@@ -156,58 +160,54 @@ nnoremap <silent> <Leader>L
 " http://vim.wikia.com/wiki/Highlight_current_line
 noremap <silent> <Leader>c :set cursorcolumn!<CR>:set cursorcolumn?<CR>
 noremap <silent> <Leader>C :set cursorline!  <CR>:set cursorline?  <CR>
-noremap <silent> <Leader>w :set wrap!        <CR>:set wrap?        <CR>
+noremap <silent> <Leader>n :NERDTreeToggle   <CR>
 noremap <silent> <Leader>p :set paste!       <CR>:set paste?       <CR>
 noremap <silent> <Leader># :set number!      <CR>:set number?      <CR>
+noremap <silent> <Leader>t :TagbarToggle     <CR>
+noremap <silent> <Leader>w :set wrap!        <CR>:set wrap?        <CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" taglist
-noremap <silent> <Leader>t :TlistToggle<CR>
-let Tlist_Auto_Open=0
-let Tlist_Close_On_Select=0
-let Tlist_Exit_OnlyWindow=1
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_Inc_Winwidth=0
-let Tlist_Process_File_Always=1
-let Tlist_Show_Menu=1
-let Tlist_Sort_Type="order"
-let Tlist_Use_Right_Window=1
-let tlist_def_tex_settings='tex;s:sections;c:chapter;g:graphics;l:label;r:ref'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree
-noremap <silent> <Leader>n :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" neocomplete
+" neocomplcache
 let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-e> neocomplete#cancel_popup()
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-l> neocomplete#complete_common_string()
-inoremap <expr><C-y> neocomplete#close_popup()
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
 endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Miscellaneous plugin configuration
 let g:ctrlp_map = '<c-p>'
@@ -217,3 +217,4 @@ let g:syntastic_enable_signs = 1
 let g:Tex_CompileRule_dvi='latex -src-specials -interaction=nonstopmode $*'
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
+let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
