@@ -23,6 +23,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'Raimondi/delimitMate'
+Bundle 'roman/golden-ratio'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -165,7 +166,6 @@ noremap <silent> <Leader>p :set paste!       <CR>:set paste?       <CR>
 noremap <silent> <Leader># :set number!      <CR>:set number?      <CR>
 noremap <silent> <Leader>t :TagbarToggle     <CR>
 noremap <silent> <Leader>w :set wrap!        <CR>:set wrap?        <CR>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neocomplcache
