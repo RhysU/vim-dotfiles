@@ -23,7 +23,6 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'Raimondi/delimitMate'
-Bundle 'roman/golden-ratio'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -49,7 +48,6 @@ else
 endif
 set autoindent
 set backspace=indent,eol,start
-set cmdheight=2
 set copyindent
 set diffopt+=iwhite,horizontal,context:2
 set expandtab
@@ -64,7 +62,6 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-set linespace=0
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set matchpairs+=<:>
@@ -127,6 +124,20 @@ noremap =V :source $MYVIMRC
 nnoremap <space> za
 vnoremap <space> zf
 
+" Tone down colors of misspelled words; modified from
+" http://www.zabbo.net/post/spell-checking-and-vim-syntax-highlighting/
+if v:version >= 700
+    setlocal spell spelllang=en_us
+    highlight clear SpellBad
+    highlight SpellBad term=standout term=underline cterm=underline ctermfg=1 gui=undercurl guisp=Red
+    highlight clear SpellCap
+    highlight SpellCap term=underline cterm=underline ctermbg=4 gui=undercurl guisp=Blue
+    highlight clear SpellRare
+    highlight SpellRare term=underline cterm=underline ctermbg=5 gui=undercurl guisp=Magenta
+    highlight clear SpellLocal
+    highlight SpellLocal term=underline cterm=underline ctermbg=6 gui=undercurl guisp=DarkCyan
+endif
+
 " Automatically quit if quickfix buffer is last
 au BufEnter * call MyLastWindow()
 function! MyLastWindow()
@@ -159,13 +170,15 @@ nnoremap <silent> <Leader>L
 " Toggle several useful settings at a few keystrokes
 " https://jeffdaly.wordpress.com/2008/05/06/vim-easily-toggle-cursorcolumn-and-cursorline/
 " http://vim.wikia.com/wiki/Highlight_current_line
-noremap <silent> <Leader>c :set cursorcolumn!<CR>:set cursorcolumn?<CR>
-noremap <silent> <Leader>C :set cursorline!  <CR>:set cursorline?  <CR>
-noremap <silent> <Leader>n :NERDTreeToggle   <CR>
-noremap <silent> <Leader>p :set paste!       <CR>:set paste?       <CR>
-noremap <silent> <Leader># :set number!      <CR>:set number?      <CR>
-noremap <silent> <Leader>t :TagbarToggle     <CR>
-noremap <silent> <Leader>w :set wrap!        <CR>:set wrap?        <CR>
+noremap <silent> <Leader>c :set cursorcolumn!  <CR>:set cursorcolumn?<CR>
+noremap <silent> <Leader>C :set cursorline!    <CR>:set cursorline?  <CR>
+noremap <silent> <Leader>n :NERDTreeToggle     <CR>
+noremap <silent> <Leader>p :set paste!         <CR>:set paste?       <CR>
+noremap <silent> <Leader># :set number!        <CR>:set number?      <CR>
+noremap <silent> <Leader>s :SyntasticToggleMode<CR>
+noremap <silent> <Leader>g :GoldenRatioToggle  <CR>
+noremap <silent> <Leader>t :TagbarToggle       <CR>
+noremap <silent> <Leader>w :set wrap!          <CR>:set wrap?        <CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neocomplcache
@@ -177,10 +190,10 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
+\   'default' : '',
+\   'vimshell' : $HOME.'/.vimshell_hist',
+\   'scheme' : $HOME.'/.gosh_completions'
+\   }
 if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
 endif
@@ -189,7 +202,7 @@ inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
+   return neocomplcache#smart_close_popup() . "\<CR>"
 endfunction
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
@@ -202,7 +215,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+    let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
