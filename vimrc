@@ -231,4 +231,6 @@ let g:syntastic_enable_signs = 1
 let g:Tex_CompileRule_dvi='latex -src-specials -interaction=nonstopmode $*'
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
+let g:vimroom_ctermbackground = 16
+let g:vimroom_sidebar_height = 0
 let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
