@@ -1,5 +1,4 @@
 set nocompatible
-"colorscheme candy
 
 " Vundle
 """"""""""""""
@@ -42,6 +41,7 @@ filetype plugin indent on
 syntax on
 
 set background=dark
+colorscheme candy
 if has ('x') && has ('gui')
     set clipboard=unnamedplus
 else
