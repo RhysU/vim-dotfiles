@@ -33,12 +33,11 @@ Bundle 'tpope/vim-abolish.git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/VisIncr'
-filetype plugin indent on
-syntax on
 
 set background=dark
 colorscheme candy
@@ -47,8 +46,6 @@ if has ('x') && has ('gui')
 else
     set clipboard=unnamed
 endif
-set autoindent
-set backspace=indent,eol,start
 set copyindent
 set diffopt+=iwhite,horizontal,context:2
 set expandtab
@@ -61,10 +58,7 @@ set hidden
 set history=1000
 set hlsearch
 set ignorecase
-set incsearch
-set laststatus=2
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set matchpairs+=<:>
 set mouse=a
 set nobackup
@@ -72,12 +66,10 @@ set noerrorbells
 set nojoinspaces
 set nowrap
 set previewheight=10
-set ruler
 set scrolljump=5
 set scrolloff=3
 set shiftwidth=4
 set shortmess+=filmnrxoOtT
-set showmatch
 set smartcase
 set softtabstop=4
 set spell
@@ -101,7 +93,6 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest
 set wildignore+=*.pyc
 set wildignore+=*.spl
 set wildignore+=*.sw?
-set wildmenu
 set wildmode=list:longest
 set winminheight=0
 
