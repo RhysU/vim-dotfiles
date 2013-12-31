@@ -66,6 +66,7 @@ set laststatus=2
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set matchpairs+=<:>
+set mouse=a
 set nobackup
 set noerrorbells
 set nojoinspaces
@@ -84,9 +85,11 @@ set splitbelow
 set splitright
 set tabstop=4
 set title
+set ttyfast
+set ttymouse=xterm
 set undolevels=1000
 set viewoptions=folds,options,cursor,unix,slash
-set virtualedit=onemore
+set virtualedit=block
 set visualbell
 set whichwrap=b,s,h,l,<,>,[,]
 set wildignore+=*.aux,*.out,*.toc,.bbl
