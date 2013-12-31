@@ -223,6 +223,13 @@ let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+" Always On Rainbow Parenthesis
+au VimEnter * RainbowParenthesesToggle
+au Syntax   * RainbowParenthesesLoadRound
+au Syntax   * RainbowParenthesesLoadSquare
+au Syntax   * RainbowParenthesesLoadBraces
+au Syntax   * RainbowParenthesesLoadChevrons
+
 " Miscellaneous plugin configuration
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 'ra'
