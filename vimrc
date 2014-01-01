@@ -57,9 +57,9 @@ set guioptions-=r " One per line necessary
 set hidden
 set history=1000
 set hlsearch
-set ignorecase
 set list
 set matchpairs+=<:>
+set modeline
 set mouse=a
 set nobackup
 set noerrorbells
@@ -70,7 +70,6 @@ set scrolljump=5
 set scrolloff=3
 set shiftwidth=4
 set shortmess+=filmnrxoOtT
-set smartcase
 set softtabstop=4
 set spell
 set splitbelow
@@ -223,11 +222,12 @@ au Syntax   * RainbowParenthesesLoadRound
 au Syntax   * RainbowParenthesesLoadSquare
 au Syntax   * RainbowParenthesesLoadBraces
 
-" Miscellaneous plugin configuration
+" Miscellaneous plugin settings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 'ra'
 let g:syntastic_auto_jump = 0
 let g:syntastic_enable_signs = 1
+let g:syntastic_sh_checkers = ['sh', 'shellcheck']
 let g:Tex_CompileRule_dvi='latex -src-specials -interaction=nonstopmode $*'
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
