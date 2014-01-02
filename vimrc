@@ -22,6 +22,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'mikewest/vimroom'
+Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -234,4 +235,6 @@ let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
 let g:vimroom_ctermbackground = 16
 let g:vimroom_sidebar_height = 0
+let g:xml_syntax_folding=1
 let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
+autocmd FileType gitcommit set foldmethod=syntax
