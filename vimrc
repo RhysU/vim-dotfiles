@@ -27,7 +27,6 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplcache.vim'
-Bundle 'Shougo/vimshell'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-fugitive'
@@ -234,4 +233,5 @@ let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
 let g:vimroom_ctermbackground = 16
 let g:vimroom_sidebar_height = 0
+let g:xml_syntax_folding=1
 let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
