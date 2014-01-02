@@ -38,6 +38,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/VisIncr'
+let &runtimepath=expand('~/.vim').','.&runtimepath
 
 set background=dark
 colorscheme candy
