@@ -38,7 +38,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/VisIncr'
-let &runtimepath=expand('~/.vim').','.&runtimepath
+" let &runtimepath=expand('~/.vim').','.&runtimepath
 
 set background=dark
 colorscheme candy
@@ -51,6 +51,7 @@ set copyindent
 set diffopt+=iwhite,horizontal,context:2
 set expandtab
 set foldmethod=syntax
+set foldlevelstart=1
 set guioptions+=a
 set guioptions-=b " One per line necessary
 set guioptions-=l " One per line necessary
@@ -119,19 +120,19 @@ noremap =V :source $MYVIMRC
 nnoremap <space> za
 vnoremap <space> zf
 
-" Tone down colors of misspelled words; modified from
-" http://www.zabbo.net/post/spell-checking-and-vim-syntax-highlighting/
-if v:version >= 700
-    setlocal spell spelllang=en_us
-    highlight clear SpellBad
-    highlight SpellBad term=standout term=underline cterm=underline ctermfg=1 gui=undercurl guisp=Red
-    highlight clear SpellCap
-    highlight SpellCap term=underline cterm=underline ctermbg=4 gui=undercurl guisp=Blue
-    highlight clear SpellRare
-    highlight SpellRare term=underline cterm=underline ctermbg=5 gui=undercurl guisp=Magenta
-    highlight clear SpellLocal
-    highlight SpellLocal term=underline cterm=underline ctermbg=6 gui=undercurl guisp=DarkCyan
-endif
+"" Tone down colors of misspelled words; modified from
+"" http://www.zabbo.net/post/spell-checking-and-vim-syntax-highlighting/
+"if v:version >= 700
+"    setlocal spell spelllang=en_us
+"    highlight clear SpellBad
+"    highlight SpellBad term=standout term=underline cterm=underline ctermfg=1 gui=undercurl guisp=Red
+"    highlight clear SpellCap
+"    highlight SpellCap term=underline cterm=underline ctermbg=4 gui=undercurl guisp=Blue
+"    highlight clear SpellRare
+"    highlight SpellRare term=underline cterm=underline ctermbg=5 gui=undercurl guisp=Magenta
+"    highlight clear SpellLocal
+"    highlight SpellLocal term=underline cterm=underline ctermbg=6 gui=undercurl guisp=DarkCyan
+"endif
 
 " Automatically quit if quickfix buffer is last
 au BufEnter * call MyLastWindow()
@@ -217,11 +218,11 @@ let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-" Always On Rainbow Parenthesis
-au VimEnter * RainbowParenthesesToggle
-au Syntax   * RainbowParenthesesLoadRound
-au Syntax   * RainbowParenthesesLoadSquare
-au Syntax   * RainbowParenthesesLoadBraces
+"" Always On Rainbow Parenthesis (DISABLED! It interferes with spellchecking!)
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax   * RainbowParenthesesLoadRound
+"au Syntax   * RainbowParenthesesLoadSquare
+"au Syntax   * RainbowParenthesesLoadBraces
 
 " Miscellaneous plugin settings
 let g:ctrlp_map = '<c-p>'
