@@ -51,7 +51,7 @@ set copyindent
 set diffopt+=iwhite,horizontal,context:2
 set expandtab
 set foldmethod=syntax
-set foldlevelstart=1
+set foldlevelstart=99
 set guioptions+=a
 set guioptions-=b " One per line necessary
 set guioptions-=l " One per line necessary
