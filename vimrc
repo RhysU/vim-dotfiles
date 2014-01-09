@@ -9,7 +9,6 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'airblade/vim-gitgutter'
 Bundle 'bling/vim-airline'
 Bundle 'ciaranm/detectindent'
 Bundle 'corntrace/bufexplorer'
@@ -21,6 +20,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
+Bundle 'mhinz/vim-signify'
 Bundle 'mikewest/vimroom'
 Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'Raimondi/delimitMate'
@@ -225,8 +225,10 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "au Syntax   * RainbowParenthesesLoadBraces
 
 " Miscellaneous plugin settings
+autocmd FileType gitcommit set foldmethod=syntax
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 'ra'
+let g:signify_vcs_list = [ 'git', 'svn' ]
 let g:syntastic_auto_jump = 0
 let g:syntastic_enable_signs = 1
 let g:syntastic_sh_checkers = ['sh', 'shellcheck']
@@ -237,4 +239,3 @@ let g:vimroom_ctermbackground = 16
 let g:vimroom_sidebar_height = 0
 let g:xml_syntax_folding=1
 let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
-autocmd FileType gitcommit set foldmethod=syntax
