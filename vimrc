@@ -40,8 +40,10 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/VisIncr'
 " let &runtimepath=expand('~/.vim').','.&runtimepath
 
+let g:rehash256 = 1
+colorscheme molokai " candy
 set background=dark
-colorscheme candy
+
 if has ('x') && has ('gui')
     set clipboard=unnamedplus
 else
