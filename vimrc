@@ -16,13 +16,14 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'gerw/vim-latex-suite'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
+Bundle 'gregsexton/VimCalc'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'mhinz/vim-signify'
 Bundle 'mikewest/vimroom'
-Bundle 'powerman/vim-plugin-viewdoc'
+"Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -40,8 +41,7 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/VisIncr'
 " let &runtimepath=expand('~/.vim').','.&runtimepath
 
-let g:rehash256 = 1
-colorscheme molokai " candy
+colorscheme candy " molokai
 set background=dark
 
 if has ('x') && has ('gui')
