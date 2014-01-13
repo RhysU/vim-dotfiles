@@ -1,5 +1,10 @@
 set nocompatible
 
+" Automatically source vimrc after writing it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " Vundle
 """"""""""""""
 " :BundleList          - list configured bundles
