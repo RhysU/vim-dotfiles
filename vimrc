@@ -1,10 +1,5 @@
 set nocompatible
 
-" Automatically source vimrc after writing it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-
 " Vundle
 """"""""""""""
 " :BundleList          - list configured bundles
@@ -230,6 +225,17 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "au Syntax   * RainbowParenthesesLoadRound
 "au Syntax   * RainbowParenthesesLoadSquare
 "au Syntax   * RainbowParenthesesLoadBraces
+
+" Tabularize mappings from
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+if exists(":Tabularize")
+  nmap <Leader>a| :Tabularize /|<CR>
+  vmap <Leader>a| :Tabularize /|<CR>
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 " Miscellaneous plugin settings
 autocmd FileType gitcommit set foldmethod=syntax
