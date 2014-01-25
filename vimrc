@@ -41,7 +41,6 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/VisIncr'
-" let &runtimepath=expand('~/.vim').','.&runtimepath
 
 colorscheme candy " molokai
 set background=dark
@@ -80,6 +79,7 @@ set softtabstop=4
 set spell
 set splitbelow
 set splitright
+set textwidth=80
 set tabstop=4
 set title
 set ttyfast
@@ -107,7 +107,6 @@ let fortran_free_source=1
 
 " Some useful personal macros
 noremap =1 /\<\([wW]e\\|[Oo]urs?\\|[Uu]s\\|I\)\>
-noremap =8 :set textwidth=80
 noremap =b :%s/\s\+$//g
 noremap =c :set ft=c
 noremap =C :set ft=cpp
@@ -157,15 +156,28 @@ function! GnuIndent()
     setlocal tabstop=8
 endfunction
 
-" Toggle highlighting long lines (modified)
-" http://vim.wikia.com/wiki/Highlight_text_beyond_80_columns
-nnoremap <silent> <Leader>L
-\   :if exists('w:long_line_match') <Bar>
-\       silent! call matchdelete(w:long_line_match) <Bar>
-\       unlet w:long_line_match <Bar>
-\   else <Bar>
-\       let w:long_line_match = matchadd('ErrorMsg', '\%>79v.\+', -1) <Bar>
-\   endif<CR>
+" Toggle highlighting long lines on <Leader>L
+if exists('+colorcolumn')
+    " Post-7.3: http://www.vimbits.com/bits/317
+    function! g:ToggleColorColumn()
+        if &colorcolumn != ''
+            setlocal colorcolumn&
+        else
+            setlocal colorcolumn=+0
+        endif
+    endfunction
+    nnoremap <silent> <leader>L :call g:ToggleColorColumn()<CR>
+    call g:ToggleColorColumn()
+else
+    " Pre-7.3: http://vim.wikia.com/wiki/Highlight_text_beyond_80_columns
+    nnoremap <silent> <Leader>L
+    \   :if exists('w:long_line_match') <Bar>
+    \       silent! call matchdelete(w:long_line_match) <Bar>
+    \       unlet w:long_line_match <Bar>
+    \   else <Bar>
+    \       let w:long_line_match = matchadd('ErrorMsg', '\%>79v.\+', -1) <Bar>
+    \   endif<CR>
+endif
 
 " Toggle several useful settings at a few keystrokes
 " https://jeffdaly.wordpress.com/2008/05/06/vim-easily-toggle-cursorcolumn-and-cursorline/
