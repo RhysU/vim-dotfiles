@@ -23,8 +23,10 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'mhinz/vim-signify'
 Bundle 'mikewest/vimroom'
+Bundle 'mileszs/ack.vim'
 "Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'Raimondi/delimitMate'
+Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -168,13 +170,14 @@ nnoremap <silent> <Leader>L
 " Toggle several useful settings at a few keystrokes
 " https://jeffdaly.wordpress.com/2008/05/06/vim-easily-toggle-cursorcolumn-and-cursorline/
 " http://vim.wikia.com/wiki/Highlight_current_line
-noremap <silent> <Leader>\| :set cursorcolumn!  <CR>:set cursorcolumn?<CR>
-noremap <silent> <Leader>-  :set cursorline!    <CR>:set cursorline?  <CR>
+noremap <silent> <Leader>g  :GoldenRatioToggle  <CR>
 noremap <silent> <Leader>n  :NERDTreeToggle     <CR>
 noremap <silent> <Leader>p  :set paste!         <CR>:set paste?       <CR>
+noremap <silent> <Leader>\| :set cursorcolumn!  <CR>:set cursorcolumn?<CR>
+noremap <silent> <Leader>-  :set cursorline!    <CR>:set cursorline?  <CR>
 noremap <silent> <Leader>#  :set number!        <CR>:set number?      <CR>
+noremap <silent> <Leader>S  :set spell!         <CR>:set spell?       <CR>
 noremap <silent> <Leader>s  :SyntasticToggleMode<CR>
-noremap <silent> <Leader>g  :GoldenRatioToggle  <CR>
 noremap <silent> <Leader>t  :TagbarToggle       <CR>
 noremap <silent> <Leader>w  :set wrap!          <CR>:set wrap?        <CR>
 
@@ -235,6 +238,8 @@ if exists(":Tabularize")
   vmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader>a<Space> :Tabularize / \zs<CR>
+  vmap <Leader>a<Space> :Tabularize / \zs<CR>
 endif
 
 " Miscellaneous plugin settings
@@ -252,3 +257,4 @@ let g:vimroom_ctermbackground = 16
 let g:vimroom_sidebar_height = 0
 let g:xml_syntax_folding=1
 let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
+set iskeyword+=:
