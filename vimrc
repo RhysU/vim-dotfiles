@@ -40,6 +40,7 @@ Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/a.vim'
+Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'vim-scripts/VisIncr'
 
 colorscheme candy " molokai
