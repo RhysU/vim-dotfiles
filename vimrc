@@ -43,7 +43,7 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'vim-scripts/VisIncr'
 
-colorscheme candy " molokai
+colorscheme vividchalk " candy molokai
 set background=dark
 
 if has ('x') && has ('gui')
@@ -269,5 +269,5 @@ let g:Tex_ViewRule_dvi='kdvi $*'
 let g:vimroom_ctermbackground = 16
 let g:vimroom_sidebar_height = 0
 let g:xml_syntax_folding=1
-let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$']
+let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$', 'autom4te.cache']
 set iskeyword+=:
