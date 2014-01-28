@@ -31,6 +31,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplcache.vim'
+Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-fugitive'
@@ -56,6 +57,7 @@ set diffopt+=iwhite,horizontal,context:2
 set expandtab
 set foldmethod=syntax
 set foldlevelstart=99
+set formatoptions=crqn
 set guioptions+=a
 set guioptions-=b " One per line necessary
 set guioptions-=l " One per line necessary
