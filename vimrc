@@ -12,6 +12,7 @@ call vundle#rc()
 Bundle 'bling/vim-airline'
 Bundle 'ciaranm/detectindent'
 Bundle 'corntrace/bufexplorer'
+" Bundle 'flazz/vim-colorschemes'
 Bundle 'gerw/vim-latex-suite'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
@@ -46,6 +47,7 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'vim-scripts/VisIncr'
 
+set t_Co=256
 colorscheme vividchalk " candy molokai
 set background=dark
 
