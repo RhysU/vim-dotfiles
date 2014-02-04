@@ -12,7 +12,6 @@ call vundle#rc()
 Bundle 'bling/vim-airline'
 Bundle 'ciaranm/detectindent'
 Bundle 'corntrace/bufexplorer'
-Bundle 'flazz/vim-colorschemes'
 Bundle 'gerw/vim-latex-suite'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
@@ -41,6 +40,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-vividchalk'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
@@ -163,12 +163,12 @@ endfunction
 
 " Toggle highlighting long lines on <Leader>L
 if exists('+colorcolumn')
-    " Post-7.3: http://www.vimbits.com/bits/317
+    " Post-7.3: http://www.vimbits.com/bits/317, modified to use textwidth
     function! g:ToggleColorColumn()
         if &colorcolumn != ''
             setlocal colorcolumn&
         else
-            setlocal colorcolumn=+0
+            let &colorcolumn="+".join(range(0,127),",+")
         endif
     endfunction
     nnoremap <silent> <leader>L :call g:ToggleColorColumn()<CR>
