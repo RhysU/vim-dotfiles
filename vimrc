@@ -78,8 +78,8 @@ set noerrorbells
 set nojoinspaces
 set nowrap
 set previewheight=10
-set scrolljump=5
-set scrolloff=3
+set scrolljump=-10
+set scrolloff=10
 set shiftwidth=4
 set shortmess+=filmnrxoOtT
 set softtabstop=4
@@ -170,7 +170,7 @@ if exists('+colorcolumn')
         if &colorcolumn != ''
             setlocal colorcolumn&
         else
-            let &colorcolumn="+".join(range(0,127),",+")
+            let &colorcolumn="+".join(range(1,127),",+")
         endif
     endfunction
     nnoremap <silent> <leader>L :call g:ToggleColorColumn()<CR>
