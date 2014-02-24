@@ -69,13 +69,13 @@ set guioptions-=r " One per line necessary
 set hidden
 set history=1000
 set hlsearch
+set joinspaces
 set list
 set matchpairs+=<:>
 set modeline
 set mouse=a
 set nobackup
 set noerrorbells
-set nojoinspaces
 set nowrap
 set previewheight=10
 set scrolljump=-10
