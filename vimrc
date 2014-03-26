@@ -130,20 +130,6 @@ noremap =V :source $MYVIMRC
 nnoremap <space> za
 vnoremap <space> zf
 
-"" Tone down colors of misspelled words; modified from
-"" http://www.zabbo.net/post/spell-checking-and-vim-syntax-highlighting/
-"if v:version >= 700
-"    setlocal spell spelllang=en_us
-"    highlight clear SpellBad
-"    highlight SpellBad term=standout term=underline cterm=underline ctermfg=1 gui=undercurl guisp=Red
-"    highlight clear SpellCap
-"    highlight SpellCap term=underline cterm=underline ctermbg=4 gui=undercurl guisp=Blue
-"    highlight clear SpellRare
-"    highlight SpellRare term=underline cterm=underline ctermbg=5 gui=undercurl guisp=Magenta
-"    highlight clear SpellLocal
-"    highlight SpellLocal term=underline cterm=underline ctermbg=6 gui=undercurl guisp=DarkCyan
-"endif
-
 " Automatically quit if quickfix buffer is last
 au BufEnter * call MyLastWindow()
 function! MyLastWindow()
