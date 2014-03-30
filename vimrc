@@ -261,5 +261,10 @@ let g:Tex_ViewRule_dvi='kdvi $*'
 let g:vimroom_ctermbackground = 16
 let g:vimroom_sidebar_height = 0
 let g:xml_syntax_folding=1
-let NERDTreeIgnore=['\.a$', '\.la$', '\.lo$', '\.o$', '\.so$', 'autom4te.cache']
 set iskeyword+=:
+
+" Avoid seeing common build artifacts in NERDTree
+let NERDTreeIgnore=[ '\.a$', 'autom4te.cache', '\.aux$', '\.bbl$', '\.blg$',
+                   \ '\.dep$', '\.fdb_latexmk$', '\.fls$', '\.la$', '\.lo$',
+                   \ '\.lof$', '\.log$', '\.lot$', '\.o$', '\.out$',
+                   \ '\.so$', '\.tdo$', '\.toc$' ]
