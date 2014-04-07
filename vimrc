@@ -50,6 +50,8 @@ Bundle 'vim-scripts/VisIncr'
 set t_Co=256
 colorscheme vividchalk " candy molokai
 set background=dark
+highlight clear SpellBad
+highlight SpellBad term=standout term=underline ctermfg=red cterm=underline
 
 if has ('x') && has ('gui')
     set clipboard=unnamedplus
