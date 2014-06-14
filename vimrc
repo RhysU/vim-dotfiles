@@ -9,6 +9,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle "arecarn/crunch"
 Bundle 'bling/vim-airline'
 Bundle 'ciaranm/detectindent'
 Bundle 'corntrace/bufexplorer'
@@ -16,7 +17,7 @@ Bundle 'corntrace/bufexplorer'
 Bundle 'gerw/vim-latex-suite'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
-Bundle 'gregsexton/VimCalc'
+"Bundle 'gregsexton/VimCalc'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'klen/python-mode'
