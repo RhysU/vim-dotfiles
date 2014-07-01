@@ -20,7 +20,7 @@ Bundle 'godlygeek/tabular'
 "Bundle 'gregsexton/VimCalc'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
-"Bundle 'klen/python-mode'
+Bundle 'klen/python-mode'
 "Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'mhinz/vim-signify'
@@ -254,6 +254,7 @@ endif
 autocmd FileType gitcommit set foldmethod=syntax
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 'ra'
+let g:pymode_indent=0
 let g:signify_vcs_list = [ 'git', 'svn' ]
 let g:syntastic_auto_jump = 0
 let g:syntastic_enable_signs = 1
@@ -261,8 +262,8 @@ let g:syntastic_sh_checkers = ['sh', 'shellcheck']
 let g:Tex_CompileRule_dvi='latex -src-specials -interaction=nonstopmode $*'
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
-let g:vimroom_ctermbackground = 16
-let g:vimroom_sidebar_height = 0
+let g:vimroom_ctermbackground=16
+let g:vimroom_sidebar_height=0
 let g:xml_syntax_folding=1
 set iskeyword+=:
 
