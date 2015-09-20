@@ -126,6 +126,7 @@ noremap =e :retab
 noremap =f !}fmt
 noremap == i 
 noremap =s !}sort
+noremap =u !}sort -u
 noremap =v :new $MYVIMRC
 noremap =V :source $MYVIMRC
 

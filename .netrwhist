@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/h2/rhys/.vim'
 let g:netrw_dirhist_2='/h2/rhys/.modules'
 let g:netrw_dirhist_3='/h2/rhys/.subversion'
+let g:netrw_dirhist_4='/h2/rhys/.matplotlib'
+let g:netrw_dirhist_5='/www/sites/turbulence/html/coleman'
+let g:netrw_dirhist_6='/www/sites/turbulence/html/coleman/..'
+let g:netrw_dirhist_7='/www/sites/turbulence/html/mpcvissturb'
