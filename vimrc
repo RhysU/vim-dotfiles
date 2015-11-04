@@ -13,7 +13,8 @@ Bundle "arecarn/crunch"
 Bundle 'bling/vim-airline'
 Bundle 'ciaranm/detectindent'
 Bundle 'corntrace/bufexplorer'
-"Bundle 'flazz/vim-colorschemes'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'elzr/vim-json'
 Bundle 'gerw/vim-latex-suite'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
@@ -22,6 +23,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'klen/python-mode'
 "Bundle 'Lokaltog/vim-easymotion'
+Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'majutsushi/tagbar'
 Bundle 'mhinz/vim-signify'
 Bundle 'mikewest/vimroom'
@@ -49,8 +51,8 @@ Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'vim-scripts/VisIncr'
 
 set t_Co=256
-colorscheme vividchalk " candy molokai
-set background=dark
+colorscheme candy " molokai vividchalk
+" set background=dark
 highlight clear SpellBad
 highlight SpellBad term=standout term=underline ctermfg=red cterm=underline
 
@@ -73,6 +75,7 @@ set hidden
 set history=1000
 set hlsearch
 set joinspaces
+set lazyredraw
 set list
 set matchpairs+=<:>
 set modeline
@@ -117,6 +120,8 @@ let fortran_free_source=1
 
 " Some useful personal macros
 noremap =1 /\<\([wW]e\\|[Oo]urs?\\|[Uu]s\\|I\)\>
+noremap =4 :set tabstop=4
+noremap =8 :set tabstop=8
 noremap =b :%s/\s\+$//g
 noremap =c :set ft=c
 noremap =C :set ft=cpp
@@ -176,19 +181,62 @@ else
     \   endif<CR>
 endif
 
+" Toggle a portrait-monitor-friendly NERDTree and Tagbar setup
+" http://unix.stackexchange.com/questions/92942/
+function! NERDTreePortrait()
+  let w:jumpbacktohere = 1
+  " Detect which plugins are open
+  if exists('t:NERDTreeBufName')
+      let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
+  else
+      let nerdtree_open = 0
+  endif
+  let tagbar_open = bufwinnr('__Tagbar__') != -1
+  " Perform the appropriate action
+  if nerdtree_open && tagbar_open
+      NERDTreeClose
+      TagbarClose
+  elseif nerdtree_open
+      TagbarOpen
+      wincmd J
+      wincmd k
+      wincmd L
+  elseif tagbar_open
+      NERDTree
+      wincmd J
+      wincmd k
+      wincmd L
+  else
+      NERDTree
+      TagbarOpen
+      wincmd J
+      wincmd k
+      wincmd L
+  endif
+  " Jump back to the original window
+  for window in range(1, winnr('$'))
+      execute window . 'wincmd w'
+      if exists('w:jumpbacktohere')
+          unlet w:jumpbacktohere
+          break
+      endif
+  endfor
+endfunction
+
 " Toggle several useful settings at a few keystrokes
 " https://jeffdaly.wordpress.com/2008/05/06/vim-easily-toggle-cursorcolumn-and-cursorline/
 " http://vim.wikia.com/wiki/Highlight_current_line
-noremap <silent> <Leader>g  :GoldenRatioToggle  <CR>
-noremap <silent> <Leader>n  :NERDTreeToggle     <CR>
-noremap <silent> <Leader>p  :set paste!         <CR>:set paste?       <CR>
-noremap <silent> <Leader>\| :set cursorcolumn!  <CR>:set cursorcolumn?<CR>
-noremap <silent> <Leader>-  :set cursorline!    <CR>:set cursorline?  <CR>
-noremap <silent> <Leader>#  :set number!        <CR>:set number?      <CR>
-noremap <silent> <Leader>S  :set spell!         <CR>:set spell?       <CR>
-noremap <silent> <Leader>s  :SyntasticToggleMode<CR>
-noremap <silent> <Leader>t  :TagbarToggle       <CR>
-noremap <silent> <Leader>w  :set wrap!          <CR>:set wrap?        <CR>
+noremap <silent> <Leader>g  :GoldenRatioToggle       <CR>
+noremap <silent> <Leader>N  :call NERDTreePortrait() <CR>
+noremap <silent> <Leader>n  :NERDTreeToggle          <CR>
+noremap <silent> <Leader>p  :set paste!              <CR>:set paste?       <CR>
+noremap <silent> <Leader>\| :set cursorcolumn!       <CR>:set cursorcolumn?<CR>
+noremap <silent> <Leader>-  :set cursorline!         <CR>:set cursorline?  <CR>
+noremap <silent> <Leader>#  :set number!             <CR>:set number?      <CR>
+noremap <silent> <Leader>S  :set spell!              <CR>:set spell?       <CR>
+noremap <silent> <Leader>s  :SyntasticToggleMode     <CR>
+noremap <silent> <Leader>t  :TagbarToggle            <CR>
+noremap <silent> <Leader>w  :set wrap!               <CR>:set wrap?        <CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neocomplcache
