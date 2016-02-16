@@ -51,8 +51,8 @@ Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'vim-scripts/VisIncr'
 
 set t_Co=256
-colorscheme candy " molokai vividchalk
-" set background=dark
+colorscheme darkbone " candy molokai vividchalk
+set background=dark
 highlight clear SpellBad
 highlight SpellBad term=standout term=underline ctermfg=red cterm=underline
 
