@@ -56,6 +56,7 @@ Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'vim-scripts/VisIncr'
+Bundle 'vimwiki/vimwiki'
 
 set t_Co=256
 colorscheme darkbone " candy molokai vividchalk
@@ -157,6 +158,9 @@ function! MyLastWindow()
         endif
     endif
 endfunction
+
+" Suggested at https://news.ycombinator.com/item?id=13157497
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 
 " http://thisblog.runsfreesoftware.com/?q=2009/04/20/indent-gnu-style-vim
 function! GnuIndent()
