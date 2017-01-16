@@ -320,6 +320,8 @@ let g:signify_vcs_list = [ 'git', 'svn' ]
 let g:syntastic_auto_jump = 0
 let g:syntastic_enable_signs = 1
 let g:syntastic_sh_checkers = ['sh', 'shellcheck']
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
 let g:Tex_CompileRule_dvi='latex -src-specials -interaction=nonstopmode $*'
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
