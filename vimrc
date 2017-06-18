@@ -9,6 +9,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle "arcticicestudio/nord-vim"
 "Bundle "arecarn/crunch"
 Bundle 'bling/vim-airline'
 Bundle 'ciaranm/detectindent'
