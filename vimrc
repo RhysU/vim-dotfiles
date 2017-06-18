@@ -61,7 +61,7 @@ Bundle 'vim-scripts/VisIncr'
 Bundle 'vimwiki/vimwiki'
 
 set t_Co=256
-colorscheme darkbone " candy molokai vividchalk
+colorscheme nord " darkbone candy molokai vividchalk
 set background=dark
 highlight clear SpellBad
 highlight SpellBad term=standout term=underline ctermfg=red cterm=underline
