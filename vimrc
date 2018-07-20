@@ -24,7 +24,7 @@ Bundle 'guns/vim-sexp'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'jpalardy/vim-slime'
 Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
+"Bundle 'kien/rainbow_parentheses.vim'
 "Bundle 'klen/python-mode'
 "Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ludovicchabant/vim-lawrencium'
@@ -160,9 +160,6 @@ function! MyLastWindow()
         endif
     endif
 endfunction
-
-" Suggested at https://news.ycombinator.com/item?id=13157497
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 
 " http://thisblog.runsfreesoftware.com/?q=2009/04/20/indent-gnu-style-vim
 function! GnuIndent()
