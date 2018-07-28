@@ -1,67 +1,70 @@
-set nocompatible
-
-" Vundle
+" Plugin management via Vundle
+" See https://github.com/VundleVim/Vundle.vim#quick-start
 """"""""""""""
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle "arcticicestudio/nord-vim"
-"Bundle "arecarn/crunch"
-Bundle 'bling/vim-airline'
-Bundle 'ciaranm/detectindent'
-Bundle 'corntrace/bufexplorer'
-"Bundle 'elzr/vim-json'
-Bundle 'flazz/vim-colorschemes'
-"Bundle 'gerw/vim-latex-suite'
-Bundle 'gmarik/vundle'
-Bundle 'godlygeek/tabular'
-"Bundle 'gregsexton/VimCalc'
-Bundle 'guns/vim-sexp'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'jpalardy/vim-slime'
-Bundle 'kien/ctrlp.vim'
-"Bundle 'kien/rainbow_parentheses.vim'
-"Bundle 'klen/python-mode'
-"Bundle 'Lokaltog/vim-easymotion'
-Bundle 'ludovicchabant/vim-lawrencium'
-Bundle 'majutsushi/tagbar'
-Bundle 'mhinz/vim-signify'
-Bundle 'mzlogin/vim-markdown-toc'
-"Bundle 'mikewest/vimroom'
-Bundle 'mileszs/ack.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'powerman/vim-plugin-viewdoc'
-"Bundle 'Raimondi/delimitMate'
-Bundle 'rking/ag.vim'
-Bundle 'rust-lang/rust.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-"Bundle 'Shougo/neocomplcache'
-"Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-sexp-mappings-for-regular-people'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'vim-erlang/vim-erlang-compiler'
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/a.vim'
-"Bundle 'vim-scripts/DoxygenToolkit.vim'
-Bundle 'vim-scripts/VisIncr'
-Bundle 'vimwiki/vimwiki'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"
+Plugin 'VundleVim/Vundle.vim'
+"Plugin "arcticicestudio/nord-vim"
+"Plugin "arecarn/crunch"
+Plugin 'bling/vim-airline'
+Plugin 'ciaranm/detectindent'
+Plugin 'corntrace/bufexplorer'
+"Plugin 'elzr/vim-json'
+Plugin 'flazz/vim-colorschemes'
+"Plugin 'gerw/vim-latex-suite'
+"Plugin 'godlygeek/tabular'
+"Plugin 'gregsexton/VimCalc'
+"Plugin 'guns/vim-sexp'
+"Plugin 'jiangmiao/auto-pairs'
+Plugin 'jpalardy/vim-slime'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/rainbow_parentheses.vim'
+"Plugin 'klen/python-mode'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-signify'
+"Plugin 'mzlogin/vim-markdown-toc'
+"Plugin 'mikewest/vimroom'
+"Plugin 'mileszs/ack.vim'
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'powerman/vim-plugin-viewdoc'
+"Plugin 'Raimondi/delimitMate'
+Plugin 'rking/ag.vim'
+"Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+"Plugin 'Shougo/neocomplcache'
+"Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-abolish'
+"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+"Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+"Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vividchalk'
+"Plugin 'vim-erlang/vim-erlang-compiler'
+"Plugin 'vim-scripts/Align'
+"Plugin 'vim-scripts/a.vim'
+"Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'vim-scripts/VisIncr'
+"Plugin 'vimwiki/vimwiki'
+
+call vundle#end()
 
 set t_Co=256
-colorscheme nord " darkbone candy molokai vividchalk
+colorscheme vividchalk " darkbone candy molokai nord vividchalk
 set background=dark
 highlight clear SpellBad
 highlight SpellBad term=standout term=underline ctermfg=red cterm=underline
@@ -247,48 +250,6 @@ noremap <silent> <Leader>S  :set spell!              <CR>:set spell?       <CR>
 noremap <silent> <Leader>s  :SyntasticToggleMode     <CR>
 noremap <silent> <Leader>t  :TagbarToggle            <CR>
 noremap <silent> <Leader>w  :set wrap!               <CR>:set wrap?        <CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" neocomplcache
-"let g:acp_enableAtStartup = 0
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_dictionary_filetype_lists = {
-"\   'default' : '',
-"\   'vimshell' : $HOME.'/.vimshell_hist',
-"\   'scheme' : $HOME.'/.gosh_completions'
-"\   }
-"if !exists('g:neocomplcache_keyword_patterns')
-"    let g:neocomplcache_keyword_patterns = {}
-"endif
-"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"inoremap <expr><C-g>     neocomplcache#undo_completion()
-"inoremap <expr><C-l>     neocomplcache#complete_common_string()
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"   return neocomplcache#smart_close_popup() . "\<CR>"
-"endfunction
-"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e> neocomplcache#cancel_popup()
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"if !exists('g:neocomplcache_omni_patterns')
-"    let g:neocomplcache_omni_patterns = {}
-"endif
-"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "" Always On Rainbow Parenthesis (DISABLED! It interferes with spellchecking!)
 "au VimEnter * RainbowParenthesesToggle
