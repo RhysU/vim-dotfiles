@@ -239,12 +239,6 @@ noremap <silent> <Leader>s  :SyntasticToggleMode     <CR>
 noremap <silent> <Leader>t  :TagbarToggle            <CR>
 noremap <silent> <Leader>w  :set wrap!               <CR>:set wrap?        <CR>
 
-"" Always On Rainbow Parenthesis (DISABLED! It interferes with spellchecking!)
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax   * RainbowParenthesesLoadRound
-"au Syntax   * RainbowParenthesesLoadSquare
-"au Syntax   * RainbowParenthesesLoadBraces
-
 " Tabularize mappings from
 " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 if exists(":Tabularize")
