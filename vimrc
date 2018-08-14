@@ -33,7 +33,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 "Plugin 'mzlogin/vim-markdown-toc'
-"Plugin 'mikewest/vimroom'
 "Plugin 'mileszs/ack.vim'
 "Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'powerman/vim-plugin-viewdoc'
@@ -266,8 +265,6 @@ let g:syntastic_cpp_compiler_options = '-std=c++14'
 let g:Tex_CompileRule_dvi='latex -src-specials -interaction=nonstopmode $*'
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi='kdvi $*'
-let g:vimroom_ctermbackground=16
-let g:vimroom_sidebar_height=0
 let g:xml_syntax_folding=1
 set iskeyword+=:
 
