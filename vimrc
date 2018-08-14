@@ -228,7 +228,6 @@ endfunction
 " Toggle several useful settings at a few keystrokes
 " https://jeffdaly.wordpress.com/2008/05/06/vim-easily-toggle-cursorcolumn-and-cursorline/
 " http://vim.wikia.com/wiki/Highlight_current_line
-noremap <silent> <Leader>g  :GoldenRatioToggle       <CR>
 noremap <silent> <Leader>N  :call NERDTreePortrait() <CR>
 noremap <silent> <Leader>n  :NERDTreeToggle          <CR>
 noremap <silent> <Leader>p  :set paste!              <CR>:set paste?       <CR>
