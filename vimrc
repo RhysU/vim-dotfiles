@@ -173,27 +173,15 @@ function! GnuIndent()
 endfunction
 
 " Toggle highlighting long lines on <Leader>L
-if exists('+colorcolumn')
-    " Post-7.3: http://www.vimbits.com/bits/317, modified to use textwidth
-    function! g:ToggleColorColumn()
-        if &colorcolumn != ''
-            setlocal colorcolumn&
-        else
-            let &colorcolumn="+".join(range(1,127),",+")
-        endif
-    endfunction
-    nnoremap <silent> <leader>L :call g:ToggleColorColumn()<CR>
-    call g:ToggleColorColumn()
-else
-    " Pre-7.3: http://vim.wikia.com/wiki/Highlight_text_beyond_80_columns
-    nnoremap <silent> <Leader>L
-    \   :if exists('w:long_line_match') <Bar>
-    \       silent! call matchdelete(w:long_line_match) <Bar>
-    \       unlet w:long_line_match <Bar>
-    \   else <Bar>
-    \       let w:long_line_match = matchadd('ErrorMsg', '\%>79v.\+', -1) <Bar>
-    \   endif<CR>
-endif
+function! g:ToggleColorColumn()
+    if &colorcolumn != ''
+        setlocal colorcolumn&
+    else
+        let &colorcolumn="+".join(range(1,127),",+")
+    endif
+endfunction
+nnoremap <silent> <leader>L :call g:ToggleColorColumn()<CR>
+"call g:ToggleColorColumn()
 
 " Toggle a portrait-monitor-friendly NERDTree and Tagbar setup
 " http://unix.stackexchange.com/questions/92942/
