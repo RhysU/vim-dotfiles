@@ -60,7 +60,7 @@ Plugin 'tpope/vim-vividchalk'
 "Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vim-scripts/VisIncr'
 "Plugin 'vimwiki/vimwiki'
-Plugin 'zxqfl/tabnine-vim'
+Plugin 'zxqfl/tabnine-vim'  " License purchased!
 
 call vundle#end()
 
