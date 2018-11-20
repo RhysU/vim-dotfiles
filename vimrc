@@ -76,6 +76,7 @@ if has ('x') && has ('gui')
 else
     set clipboard=unnamed
 endif
+set colorcolumn=80
 set copyindent
 set diffopt+=iwhite,horizontal,context:2
 set expandtab
@@ -172,17 +173,6 @@ function! GnuIndent()
     setlocal shiftwidth=2
     setlocal tabstop=8
 endfunction
-
-" Toggle highlighting long lines on <Leader>L
-function! g:ToggleColorColumn()
-    if &colorcolumn != ''
-        setlocal colorcolumn&
-    else
-        let &colorcolumn="+".join(range(1,127),",+")
-    endif
-endfunction
-nnoremap <silent> <leader>L :call g:ToggleColorColumn()<CR>
-"call g:ToggleColorColumn()
 
 " Toggle a portrait-monitor-friendly NERDTree and Tagbar setup
 " http://unix.stackexchange.com/questions/92942/
