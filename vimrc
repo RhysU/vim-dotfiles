@@ -70,6 +70,7 @@ colorscheme vividchalk " darkbone candy molokai nord vividchalk
 set background=dark
 highlight clear SpellBad
 highlight SpellBad term=standout term=underline ctermfg=red cterm=underline
+highlight ColorColumn term=standout ctermbg=magenta
 
 if has ('x') && has ('gui')
     set clipboard=unnamedplus
